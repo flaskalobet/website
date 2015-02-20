@@ -1,0 +1,6 @@
+To use the flask-migrate:
+    1.  python python-script.py db init
+    2.  python python-script.py db migrate -m "initial migration"
+        2.1 The Database is only created the alembic_version table
+    3.  python python-script.py db upgrade
+        3.1 The Database create all tables for us

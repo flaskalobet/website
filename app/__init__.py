@@ -36,19 +36,19 @@ def create_app(config_name):
     #: Begging log app
     app.logger.addHandler(filehandler)
 
-    #import blueprint
+    #: import blueprint
     from main import main
     app.register_blueprint(main)
 
-    #import blueprint fsuser
+    #: import blueprint fsuser
     from fsuser import fsuser
     app.register_blueprint(fsuser)
 
-    #import blueprint fseasyrouting
+    #: import blueprint fseasyrouting
     from fseasyroute import fseasy
     app.register_blueprint(fseasy)
 
-    #import blueprint fslcr
+    #: import blueprint fslcr
     from fslcr import fslcr
     app.register_blueprint(fslcr)
 

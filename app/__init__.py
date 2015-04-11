@@ -13,7 +13,7 @@ db = SQLAlchemy()
 filehandler = RotatingFileHandler('foo.log', maxBytes=10000, backupCount=1)
 
 #: Set Formatter of log modules
-formatter = Formatter("[%(asctime)s] {%(pathname)s:%(lineno)d} %(levelname)s - %(message)s")
+formatter = Formatter("[%(asctime)s] {%(pathname)s:%(lineno)d} - %(message)s")
 filehandler.setFormatter(formatter)
 
 #: set Level of log - INFO, WARNING, DEBUG

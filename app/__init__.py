@@ -1,6 +1,8 @@
 from flask import Flask
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.login import LoginManager
+
 from config import config
 
 from logging import Formatter, INFO, WARNING, DEBUG, getLogger
@@ -21,6 +23,11 @@ filehandler.setFormatter(formatter)
 filehandler.setLevel(INFO)
 
 
+#: Flask-login
+login_manager = LoginManager()
+login_manager.session_protection = 'strong'
+login_manager.login_view = 'login'
+
 def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object(config[config_name])
@@ -28,6 +35,7 @@ def create_app(config_name):
     
     bootstrap.init_app(app)
     db.init_app(app)
+    login_manager.init_app(app)
 
     #: set Level of log - INFO, WARNING, DEBUG
     #: the flask app should be the same setLevel of log of logging modules

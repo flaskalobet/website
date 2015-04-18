@@ -1,0 +1,45 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                <!--a href="{#{ url_for('fsuser.index') }#}">SIP User</a-->
+                <a href="#">SIP User</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Easy Route</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#">LCR</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {#% if current_user.is_authenticated() %@}
+                    <li><a href="{@{ url_for('main.logout') }@}">Log Out</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('main.index') }}">Log In</a></li>
+                {% endif %##}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% block page_content %}{% endblock %}
+    </div>
+{% endblock %}

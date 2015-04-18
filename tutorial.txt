@@ -6,3 +6,6 @@ export PATH=/usr/pgsql-9.4/bin/:$PATH
 #guide to use watchman
 #use watchman trigger function to trigger action
 watchman -- trigger path_to_source trigger_name pattern_to_trigger -- commandline
+
+#update from github to local
+git pull origin master
